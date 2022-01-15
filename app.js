@@ -15,16 +15,17 @@ let arr = ["Plot No:1, Sadarpur, Sector-45, Noida, Uttar Pradesh 201303, India",
   //url = "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyA5bwbEsAOUMOI4RK2zXcIayG4vjuQSpcw" ;
   https.get(url, function(response) {
     console.log(response.statusCode);
-    response.on("data",function(data){
-
-      // let a  = JSON.parse(response);
-      let details = data.toString();
-
-      console.log(details.results.address_components);
-      // let details = JSON.stringify(data.toString());
-      // let det_json = JSON.parse(details);
-      // console.log(det_json.results[0]);
-    })
+    console.log(response["results"][0]["formatted_address"]);
+//     response.on("data",function(data){
+//       console.log(typeof data);
+//            console.log(data.data.results[0]);
+//       // console.log(response.data["results"]);
+// // let details = JSON.parse(JSON.stringify(data.toString()));
+// //
+// // console.log(details["results"]["formatted_address"]);
+//
+// });
+    //console.log(JSON.parse(response.toString()));
 
   });
 
@@ -32,3 +33,4 @@ let arr = ["Plot No:1, Sadarpur, Sector-45, Noida, Uttar Pradesh 201303, India",
 app.listen(3000,function(req,res){
 console.log("listening");
 });
+
